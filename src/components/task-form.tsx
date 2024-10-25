@@ -52,19 +52,13 @@ const TaskForm = () => {
       onSubmit={handleSubmit}
       className=" flex flex-col justify-between space-y-4"
     >
-      <Label>Task name</Label>
+      <Label>Task Name</Label>
       <Input
-        placeholder="Task name"
+        placeholder="Training at the gym"
         value={taskName}
         onChange={(e) => setTaskName(e.target.value)}
       />
       <div className="flex gap-2">
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          {selectedTodoId !== null ? "Save" : "Add"} Task
-        </button>
         {selectedTodoId !== null && (
           <button
             type="button"
@@ -74,6 +68,12 @@ const TaskForm = () => {
             Delete
           </button>
         )}
+        <button
+          type="submit"
+          className="bg-blue-500 w-full text-white px-4 py-2 rounded"
+        >
+          {selectedTodoId !== null ? "Save" : "Add"} Task
+        </button>
       </div>
     </form>
   );
