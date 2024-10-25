@@ -4,8 +4,14 @@ import TaskForm from "./components/task-form";
 import TaskHeader from "./components/task-header";
 import TaskList from "./components/task-list";
 import UserHeader from "./components/user-header";
+import useStore from "./hook/useStore";
 
 function App() {
+  const { setSelectedTodoId } = useStore();
+
+  const handleAddNew = () => {
+    setSelectedTodoId(null);
+  };
   return (
     <>
       <div className="max-w-4xl w-full mx-auto my-auto p-4">
@@ -18,7 +24,10 @@ function App() {
               <TaskList />
             </div>
 
-            <div className="ml-auto p-2">
+            <div
+              className="ml-auto p-2 cursor-pointer"
+              onClick={() => handleAddNew}
+            >
               <PlusIcon className="bg-blue-600 rounded-full w-8 text-white h-8 p-1" />
             </div>
           </div>

@@ -15,13 +15,6 @@ const TaskForm = () => {
   } = useStore();
 
   useEffect(() => {
-    if (todos.length > 0 && selectedTodoId === null) {
-      setSelectedTodoId(todos[0].id);
-      setTaskName(todos[0].text);
-    }
-  }, [todos, selectedTodoId, setSelectedTodoId]);
-
-  useEffect(() => {
     const selectedTodo = todos.find((todo) => todo.id === selectedTodoId);
     if (selectedTodo) {
       setTaskName(selectedTodo.text);
@@ -38,6 +31,7 @@ const TaskForm = () => {
       addTodo(taskName);
     }
     setTaskName("");
+    setSelectedTodoId(null);
   };
 
   const handleDelete = () => {
